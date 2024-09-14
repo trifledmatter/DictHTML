@@ -1,0 +1,6 @@
+bin/
+env/
+__pycache__/
+
+example.html
+test.py
