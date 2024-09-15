@@ -9,7 +9,6 @@ class HTMLTokenizer:
 
     def tokenize(self) -> List[str]:
         """Tokenizes the HTML into a list of tags and text."""
-        # Matches tags and text between tags
         tag_regex = r"(<[^>]+>|[^<]+)"
         return re.findall(tag_regex, self.html)
 

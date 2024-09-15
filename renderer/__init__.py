@@ -20,16 +20,13 @@ class HTMLRenderer:
         if isinstance(element, HTMLPlainText):
             return self.render_text(element)
 
-        # Render the HTML element
         tag = element.tag
         attributes = self.render_attributes(element.attributes)
         children = self.render_children(element.children, level + 1)
 
-        # Special case for self-closing tags
         if tag in ["br", "img", "input", "meta", "link", "hr"]:
             return self.render_self_closing_tag(tag, attributes)
 
-        # Render opening tag, children, and closing tag
         opening_tag = f"<{tag}{attributes}>"
         closing_tag = f"</{tag}>"
 
