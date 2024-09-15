@@ -8,3 +8,6 @@ class HTMLHeadElement(HTMLElement):
         children: List[HTMLElement | str] | None = None,
     ):
         super().__init__('head', attributes, children)
+
+    def __repr__(self):
+        return f"HTMLHeadElement(tag='{self.tag}', attributes={self.attributes}, children={self.children}, text='{self.text}')"

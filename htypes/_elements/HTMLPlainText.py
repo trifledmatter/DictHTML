@@ -8,3 +8,6 @@ class HTMLPlainText(HTMLElement):
     """
     def __init__(self, attributes: dict | None = None, children: List[HTMLElement | str] | None = None):
         super().__init__('span', attributes, children)
+
+    def __repr__(self):
+        return f"HTMLPlainText(tag='{self.tag}', attributes={self.attributes}, children={self.children}, text='{self.text}')"

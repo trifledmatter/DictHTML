@@ -29,6 +29,7 @@ class HTMLParser:
             elif token.startswith("<"):
                 tag_name, attributes = self.parse_tag(token)
                 element = self.classify_element(tag_name, attributes)
+                # print(element)
 
                 if tag_name in ["br", "img", "input", "meta", "link", "hr"]:
                     if elements_stack:
@@ -67,8 +68,9 @@ class HTMLParser:
         return tag_name, attributes
 
 
-    def classify_element(self, tag_name: str, attributes: dict) -> HTMLElement:
+    def classify_element(self, tag_name: str, attributes: dict):
         """Classifies the element by tag name and returns the appropriate HTMLElement subclass."""
+
         if tag_name == "div":
             return HTMLDivElement(attributes=attributes)
         elif tag_name == "body":
@@ -78,5 +80,6 @@ class HTMLParser:
         elif tag_name == "link":
             return HTMLLinkElement(attributes=attributes)
         else:
+            # print("got: " + tag_name)
             return HTMLElement(tag=tag_name, attributes=attributes)
 
